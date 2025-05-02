@@ -28,15 +28,12 @@ jobs:
       - name: 🧰 Install Deps
         run: npm install
         
-      # Setup Cypress
-      - name: Cypress Install
-        run: npm ci
-        
-      # Run build
-      - name: Run Build
-        run: npm run build
 
-      # Run tests
-      - name: Run Tests
-        run: npm run test
+        # Setup Cypress
+      - name: Cypress Install
+        uses: cypress-io/github-action@v6
+        with: 
+          build: npm run build
+          start: npm run start
+          component: true
         
